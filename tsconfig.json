@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "stripInternal": false,
+    "noEmit": false,
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "target": "esnext",
+    "incremental": true,
+    "outDir": "./dist"
+  },
+  "bazelOptions": {
+    "suppressTsconfigOverrideWarnings": true
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

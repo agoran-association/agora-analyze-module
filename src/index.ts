@@ -1,0 +1,1 @@
+export {GoogleTagManagePlugin} from './gtm';
