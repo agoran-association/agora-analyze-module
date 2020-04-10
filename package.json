@@ -6,13 +6,13 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "lint": "eslint",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
+    "lint": "eslint . --ext .ts",
+    "lint-fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"./**/*.{ts,json,eslintrc}\"",
+    "format-check": "prettier --list-different \"./**/*.{ts,json,eslintrc}\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pre-commit": "npm run lint-staged",
+    "pre-push": "npm run format-check"
   },
   "keywords": [],
   "author": "matrixbirds",
@@ -23,7 +23,9 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
+    "eslint": "^6.8.0",
     "husky": "^4.2.5",
+    "prettier": "^2.0.4",
     "typescript": "^3.8.3"
   }
 }

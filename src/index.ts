@@ -1,1 +1,1 @@
-export {GoogleTagManagePlugin} from './gtm';
+export { GoogleTagManagePlugin } from './gtm';
