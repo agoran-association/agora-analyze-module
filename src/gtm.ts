@@ -1,4 +1,6 @@
-import HtmlWebpack from 'html-webpack-plugin';
+// import * as HtmlWebpack from 'html-webpack-plugin'
+// @ts-ignore
+const HtmlWebpack = require('html-webpack-plugin')
 
 const CODE = `<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -17,19 +19,19 @@ export class GoogleTagManagePlugin {
 
   apply(compiler: any) {
     compiler.hooks.compilation.tap(
-      'agora-analyze-module',
+      'GoogleTagManagePlugin',
       (compilation: any) => {
-        HtmlWebpack.getHooks(compilation).afterTemplateExecution.tap(
-          'agora-analyze-module',
-          ({ html, ...props }: any) => ({
-            html: html.replace(
+        HtmlWebpack.getHooks(compilation).afterTemplateExecution.tapAsync(
+          'GoogleTagManagePlugin',
+          ({html, ...props}: any, callback: any) => {
+            const newHtml = html.replace(
               '</head>',
               CODE.replace('{{GTM}}', this.gtm) + '</head>',
-            ),
-            ...props,
-          }),
-        );
-      },
-    );
+            )
+            callback(null, {html: newHtml, ...props})
+          }
+        )
+      }
+    )
   }
 }

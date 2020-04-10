@@ -10,8 +10,9 @@
     "moduleResolution": "node",
     "stripInternal": false,
     "noEmit": false,
-    "lib": ["esnext", "dom"],
-    "target": "esnext",
+    "lib": ["es2015", "dom"],
+    "target": "ES5",
+    "module": "commonjs",
     "incremental": true,
     "outDir": "./dist"
   },

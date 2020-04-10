@@ -1,6 +1,6 @@
 {
   "name": "agora-analyze-module",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Agora webdemo analyze webpack plugin",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,9 +17,6 @@
   "keywords": [],
   "author": "matrixbirds",
   "license": "ISC",
-  "dependencies": {
-    "html-webpack-plugin": "^4.2.0"
-  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
@@ -27,5 +24,8 @@
     "husky": "^4.2.5",
     "prettier": "^2.0.4",
     "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "html-webpack-plugin": "^4.2.0"
   }
 }
